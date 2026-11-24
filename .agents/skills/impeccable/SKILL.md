@@ -5,6 +5,8 @@ metadata:
   version: 4.8.2
 ---
 
+<!-- Modified by arynbht from the upstream Impeccable skill; FORK.md lists the changes. -->
+
 This skill gives you the tools and permission to make design that earns the name out-of-distribution craft. Work as an award-winning design director would: production-grade code, a clear POV, a deep grasp of what the client and its users need, and exceptional craft.
 
 Core principles:
@@ -79,7 +81,7 @@ After init writes PRODUCT.md, resume without rerunning `impeccable context`; ini
 
 **Pin / Unpin:** `.agents/skills/impeccable/scripts/impeccable pin <pin|unpin> <command>` creates or removes a standalone `$<command>` shortcut. Report the script's result concisely; relay stderr verbatim on error.
 
-**Hooks:** `$impeccable hooks <on|off|status|ignore-rule|ignore-file|ignore-value|reset>` manages the design detector hook for this project (auto-runs the detector after UI file edits and surfaces findings). Load [reference/hooks.md](reference/hooks.md) when the user invokes it with any argument.
+**Design hook (left out of this copy):** this copy never wires the design detector into a harness, and `impeccable hooks` is not one of its commands. Don't run it with any action, even when `impeccable context` or doctor names it as the fix for `hook-not-installed`: report that finding and move on. Before you finish, run `.agents/skills/impeccable/scripts/impeccable detect <path>` once over the UI files you changed, as the `MANUAL_DETECTOR_REQUIRED` directive asks. A finding you judge a false positive is reported with your reason, not suppressed; adding a detector ignore or an `impeccable-disable` comment is the user's call.
 
 **Doctor:** `$impeccable doctor` reports and repairs drift between this project's Impeccable artifacts (PRODUCT.md, DESIGN.md and its sidecar, config, surface briefs, the hook) and what this version reads. Load [reference/doctor.md](reference/doctor.md) when the user invokes it, or when they ask what is out of date, stale, or needs refreshing. A `CONTEXT_STALE` directive in Setup's output is the cheap subset of the same report; act on it there per its own instructions rather than running doctor unasked.
 
